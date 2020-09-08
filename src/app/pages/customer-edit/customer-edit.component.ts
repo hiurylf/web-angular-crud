@@ -90,7 +90,7 @@ export class CustomerEditComponent implements OnInit {
         }
       }
     }, () => {
-      this.utils.showMessage(`Error ao buscar a cliente.)`);
+      this.utils.showMessage(`Error ao buscar o cliente.`);
     });
   }
 
