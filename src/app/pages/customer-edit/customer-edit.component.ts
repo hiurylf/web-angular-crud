@@ -54,17 +54,17 @@ export class CustomerEditComponent implements OnInit {
     });
   }
 
-  async ngOnInit(): Promise<void> {
-    await this.getVehicleBrands();
+  ngOnInit(): void {
+    this.getVehicleBrands();
 
-    this.activatedRoute.params.subscribe(async params => {
+    this.activatedRoute.params.subscribe(params => {
       if (params && params.id) {
-        await this.getCustomer(params.id);
+        this.getCustomer(params.id);
       }
     });
   }
 
-  async saveCustomer(): Promise<void> {
+  saveCustomer(): void {
     const model = this.vehicleModels.find(mod => {
       return mod.codigo === this.form.controls.vehicleModelCode.value;
     });
@@ -77,7 +77,7 @@ export class CustomerEditComponent implements OnInit {
     });
   }
 
-  async getCustomer(id: string): Promise<void> {
+  getCustomer(id: string): void {
     this.customerService.getById(id).subscribe((customer: Customer) => {
       this.editMode = true;
       this.form.patchValue(customer);
@@ -94,7 +94,7 @@ export class CustomerEditComponent implements OnInit {
     });
   }
 
-  async getVehicleModels(brandCod: string): Promise<void> {
+  getVehicleModels(brandCod: string): void {
     this.loading = true;
     this.vehicleService.getModelsByCodeBrand(brandCod).subscribe(res => {
       if (res && res.modelos && Array.isArray(res.modelos)) {
@@ -106,7 +106,7 @@ export class CustomerEditComponent implements OnInit {
     });
   }
 
-  async getVehicleBrands(): Promise<void> {
+  getVehicleBrands(): void {
     this.vehicleService.getBrands().subscribe((brands: VehicleBrandModel[]) => {
       if (brands && Array.isArray(brands)) {
         this.vehicleBrands = brands;
@@ -130,13 +130,13 @@ export class CustomerEditComponent implements OnInit {
     }
   }
 
-  async brandChange(brand: string, resetModelForm: boolean = false): Promise<void> {
+  brandChange(brand: string, resetModelForm: boolean = false): void {
     if (resetModelForm) {
       this.form.controls.vehicleModelCode.reset();
       this.form.controls.vehicleModelName.reset();
     }
     this.vehicleModels = [];
-    await this.getVehicleModels(brand);
+    this.getVehicleModels(brand);
   }
 
 }

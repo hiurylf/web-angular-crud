@@ -37,7 +37,7 @@ export class CustomerComponent implements OnInit {
    * @param customer A customer.
    * @returns A void Promise.
    */
-  async deleteCustomer(customer: Customer): Promise<void> {
+  deleteCustomer(customer: Customer): void {
       this.customerService.delete(customer.id).subscribe(() => {
         this.getAllCustomers();
         this.utils.showMessage('Cliente deletado com sucesso!');
