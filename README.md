@@ -2,9 +2,9 @@
 
 Demonstrative customer registration system for a car store using Angular.
 
-## See the Demo
+## Install dependencies
 
-[Demo](http://www.hiurylf.epizy.com)
+Run `npm i` for install dependencies.
 
 ## Development server
 
