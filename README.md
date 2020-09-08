@@ -4,7 +4,7 @@ Demonstrative customer registration system for a car store using Angular.
 
 ## See the Demo
 
-[Demo](www.hiurylf.epizy.com)
+[Demo](http://www.hiurylf.epizy.com)
 
 ## Development server
 
