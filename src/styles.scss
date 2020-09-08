@@ -1,0 +1,52 @@
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.generic-link {
+  color: #0060B6;
+  text-decoration: none;
+
+  &:hover {
+    color:#00A0C6;
+    text-decoration:none;
+    cursor:pointer;
+  }
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2;
+  padding-bottom: 15px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.btn-transform-efect {
+  transition: 300ms;
+  &:hover {
+    cursor: pointer;
+    opacity: 0.85;
+    transform: scale(1.15);
+    box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.disable {
+  opacity: 0.5;
+  span {
+    color: aliceblue;
+  }
+  &:hover {
+    span {
+      color: #ffc204;
+    }
+    opacity: 0.55;
+  }
+}
+
+

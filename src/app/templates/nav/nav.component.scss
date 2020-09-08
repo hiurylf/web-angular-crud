@@ -1,0 +1,25 @@
+.nav-container {
+
+  .sidenav {
+      background-color: #3f51b5;
+      width: 140px;
+
+    .nav-list {
+
+      a {
+        color: #fff;
+        padding: 10px 0;
+      }
+
+      i {
+        padding-right: 10px;
+      }
+    }
+
+  }
+
+  .content {
+    padding: 15px 15px 55px 15px;
+    background-color: #fff;
+  }
+}

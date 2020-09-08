@@ -1,0 +1,27 @@
+.card-content {
+  //form {
+  //  display: flex;
+  //  flex-direction: column;
+  //}
+
+  .form {
+
+    mat-form-field {
+      width: 100%;
+    }
+  }
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .btn-save {
+    background-color: #00a000;
+    margin: 20px 20px 10px 0;
+    transition: 300ms;
+  }
+}
+
+

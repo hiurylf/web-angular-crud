@@ -1,0 +1,29 @@
+<mat-sidenav-container class="nav-container">
+  <mat-sidenav class="sidenav" mode="side" opened fixedInViewport="true" fixedTopGap="64">
+    <mat-nav-list class="nav-list">
+      <a mat-list-item routerLink="">
+        <i class="material-icons">home</i>
+        Início
+      </a>
+
+      <a mat-list-item routerLink="customers">
+        <i class="material-icons">list</i>
+        Lista de Clientes
+      </a>
+
+      <a mat-list-item routerLink="customer-edit">
+        <i class="material-icons">add</i>
+        Adicionar Cliente
+      </a>
+    </mat-nav-list>
+
+    <app-footer></app-footer>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>
+
+
