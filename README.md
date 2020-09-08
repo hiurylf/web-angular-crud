@@ -1,6 +1,7 @@
-# FrontendAngularCrud
+Project description
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.8.
+Demonstrative customer registration system for a car store using Angular.
+
 
 ## Development server
 
