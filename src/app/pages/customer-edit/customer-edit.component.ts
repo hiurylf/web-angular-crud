@@ -10,7 +10,7 @@ import {Customer} from '../../models/class/customer/customer';
 import {VehicleModelModel} from '../../models/interface/vehicle-model.model';
 import {VehicleBrandModel} from '../../models/interface/vehicle-brand.model';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ConstantsService} from '../../services/constants/constants.service';
+import { city, uf} from '../../services/constants/constants';
 import {MatDialog} from '@angular/material/dialog';
 
 @Component({
@@ -28,12 +28,14 @@ export class CustomerEditComponent implements OnInit {
   editMode: boolean = false;
   loading: boolean = false;
 
+  city = city;
+  uf = uf;
+
   constructor(private router: Router,
               private utils: UtilsService,
               private vehicleService: VehicleService,
               private customerService: CustomerService,
               private formBuilder: FormBuilder,
-              public constants: ConstantsService,
               private dialog: MatDialog,
               private activatedRoute: ActivatedRoute) {
 
@@ -55,7 +57,7 @@ export class CustomerEditComponent implements OnInit {
   async ngOnInit(): Promise<void> {
     await this.getVehicleBrands();
 
-    await this.activatedRoute.params.subscribe(async params => {
+    this.activatedRoute.params.subscribe(async params => {
       if (params && params.id) {
         await this.getCustomer(params.id);
       }
@@ -67,7 +69,7 @@ export class CustomerEditComponent implements OnInit {
       return mod.codigo === this.form.controls.vehicleModelCode.value;
     });
     this.form.controls.vehicleModelName.setValue(model.nome);
-    await this.customerService.createOrUpdate(this.form.value).subscribe(() => {
+    this.customerService.createOrUpdate(this.form.value).subscribe(() => {
       this.utils.showMessage('Cliente salvo com sucesso!');
       this.router.navigate(['/customers']);
     }, error => {
@@ -76,7 +78,7 @@ export class CustomerEditComponent implements OnInit {
   }
 
   async getCustomer(id: string): Promise<void> {
-    await this.customerService.getById(id).subscribe((customer: Customer) => {
+    this.customerService.getById(id).subscribe((customer: Customer) => {
       this.editMode = true;
       this.form.patchValue(customer);
       if (customer) {
@@ -94,7 +96,7 @@ export class CustomerEditComponent implements OnInit {
 
   async getVehicleModels(brandCod: string): Promise<void> {
     this.loading = true;
-    await this.vehicleService.getModelsByCodeBrand(brandCod).subscribe(res => {
+    this.vehicleService.getModelsByCodeBrand(brandCod).subscribe(res => {
       if (res && res.modelos && Array.isArray(res.modelos)) {
         this.vehicleModels = res.modelos;
       }
@@ -105,7 +107,7 @@ export class CustomerEditComponent implements OnInit {
   }
 
   async getVehicleBrands(): Promise<void> {
-    await this.vehicleService.getBrands().subscribe((brands: VehicleBrandModel[]) => {
+    this.vehicleService.getBrands().subscribe((brands: VehicleBrandModel[]) => {
       if (brands && Array.isArray(brands)) {
         this.vehicleBrands = brands;
       }
@@ -114,14 +116,14 @@ export class CustomerEditComponent implements OnInit {
     });
   }
 
-  stateChange(uf: string, resetCityForm: boolean = false): void {
+  stateChange(ufParam: string, resetCityForm: boolean = false): void {
     if (resetCityForm) {
       this.form.controls.city.reset();
     }
     this.availableCitys = [];
-    if (this.constants && this.constants.city && Array.isArray(this.constants.city)) {
-      this.availableCitys = this.constants.city.filter(item => {
-        return item.uf === uf;
+    if (this.city && Array.isArray(this.city)) {
+      this.availableCitys = this.city.filter(item => {
+        return item.uf === ufParam;
       });
     } else {
       this.availableCitys = [];

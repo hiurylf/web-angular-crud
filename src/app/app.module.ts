@@ -33,9 +33,9 @@ import {HomeComponent} from './pages/home/home.component';
 /*
  * Imports Shared Components
  */
-import {HeaderComponent} from './templates/header/header.component';
-import {FooterComponent} from './templates/footer/footer.component';
-import {NavComponent} from './templates/nav/nav.component';
+import {HeaderComponent} from './layouts/header/header.component';
+import {FooterComponent} from './layouts/footer/footer.component';
+import {NavComponent} from './layouts/nav/nav.component';
 
 
 @NgModule({

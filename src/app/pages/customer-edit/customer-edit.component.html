@@ -32,15 +32,15 @@
           </mat-form-field>
         </div>
 
-        <div class="col-12 col-md-6" *ngIf="constants && constants.uf">
+        <div class="col-12 col-md-6" *ngIf="uf">
           <mat-form-field appearance="fill">
             <mat-label>Estado</mat-label>
             <mat-select formControlName="state" (valueChange)="stateChange($event, true)">
-              <mat-option *ngFor="let state of constants.uf" [value]="state.sigla">{{state.nome}}</mat-option>
+              <mat-option *ngFor="let state of uf" [value]="state.sigla">{{state.nome}}</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
-        <div class="col-12 col-md-6" *ngIf="constants && constants.city">
+        <div class="col-12 col-md-6" *ngIf="city">
           <mat-form-field appearance="fill">
             <mat-label>Cidade</mat-label>
             <mat-select formControlName="city" [disabled]="!availableCitys || availableCitys.length < 1">

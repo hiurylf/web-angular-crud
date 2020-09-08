@@ -1,21 +1,26 @@
-.table {
+.table-content {
+  white-space: nowrap;
+  overflow-x: auto;
 
-
-  i {
-    border-radius: 4px;
-  }
-
-  .edit {
-    padding: 0 5px;
+  .table {
     i {
-      color: #d9cd26;
+      border-radius: 4px;
     }
-  }
 
-  .delete {
-    padding: 0 5px;
-    i {
-      color: #e35e6b;
+    .edit {
+      padding: 0 5px;
+
+      i {
+        color: #d9cd26;
+      }
+    }
+
+    .delete {
+      padding: 0 5px;
+
+      i {
+        color: #e35e6b;
+      }
     }
   }
 }
