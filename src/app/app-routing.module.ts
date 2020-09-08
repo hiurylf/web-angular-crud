@@ -9,7 +9,7 @@ import {HomeComponent} from './pages/home/home.component';
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'customers', component: CustomerComponent},
-  {path: 'customer', redirectTo: 'customers/:id'},
+  {path: 'customer', redirectTo: 'customers'},
   {path: 'customer-edit', component: CustomerEditComponent},
   {path: 'customer-edit/:id', redirectTo: 'customers/:id'},
   {path: 'customer/:id', redirectTo: 'customers/:id'},
